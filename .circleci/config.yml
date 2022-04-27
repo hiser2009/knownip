@@ -45,7 +45,7 @@ jobs:
            # interact with AWS
            aws sts get-caller-identity
            echo 'export NO_ACCESS=$(aws ecr describe-repositories)' >> $BASH_ENV
-           echo 'export S3_READ_ACCESS=$(aws ecr describe-repositories)' >> $BASH_ENV
+           echo 'export S3_READ_ACCESS=$(aws s3 ls)' >> $BASH_ENV
            echo $NO_ACCESS
            echo $S3_READ_ACCESS
 workflows:
