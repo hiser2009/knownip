@@ -44,6 +44,7 @@ jobs:
            export AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY AWS_SESSION_TOKEN
            # interact with AWS
            aws sts get-caller-identity
+           aws s3 ls
            echo 'export NO_ACCESS=$(aws ecr describe-repositories)' >> $BASH_ENV
            echo 'export S3_READ_ACCESS=$(aws s3 ls)' >> $BASH_ENV
            echo $NO_ACCESS
