@@ -8,7 +8,7 @@ jobs:
       - image: buildpack-deps:impish-scm
     environment:
       AWS_DEFAULT_REGION: us-east-1
-      AWS_ROLE_ARN: arn:aws:iam::144291977149:role/circleci-oidc
+      AWS_ROLE_ARN: $AWS_ROLE_ARN
     steps:
       - checkout
       - run: |
@@ -45,7 +45,6 @@ jobs:
            # interact with AWS
            aws sts get-caller-identity
            aws s3 ls
-           aws ecr describe-repositories
            echo 'export NO_ACCESS=$(aws ecr describe-repositories)' >> $BASH_ENV
            echo 'export S3_READ_ACCESS=$(aws s3 ls)' >> $BASH_ENV
            echo $NO_ACCESS
