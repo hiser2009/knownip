@@ -44,7 +44,7 @@ jobs:
            export AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY AWS_SESSION_TOKEN
            # interact with AWS
            aws sts get-caller-identity
-           aws ecr describe-repositories
+           echo 'export NO_ACCESS=$(aws ecr describe-repositories)' >> $BASH_ENV
           
 workflows:
   inspect_changes:
